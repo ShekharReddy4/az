@@ -1,0 +1,182 @@
+1)
+
+#include "stdlib.h"
+int main()
+{
+ int *pInt;
+ int **ppInt1;
+ int **ppInt2;
+ 
+ pInt = (int*)malloc(sizeof(int));
+ ppInt1 = (int**)malloc(10*sizeof(int*));
+ ppInt2 = (int**)malloc(10*sizeof(int*));
+ 
+ free(pInt);
+ free(ppInt1);
+ free(*ppInt2);
+ return 0;
+}
+
+
+Choose the correct statement w.r.t. above C program.
+(A) malloc() for ppInt1 and ppInt2 isn’t correct. It’ll give compile time error.
+(B) free(*ppInt2) is not correct. It’ll give compile time error.
+(C) free(*ppInt2) is not correct. It’ll give run time error.
+(D) No issue with any of the malloc() and free() i.e. no compile/run time error.
+
+
+Answer: (D) 
+
+Explanation: ppInt2 is pointer to pointer to int. *ppInt2 is pointer to int. So long as the argument of free() is pointer, there’s no issue.
+ That’s why B) and C) both are not correct.
+ Allocation of both ppInt1 and ppInt2 is fine as per their data type. So A) is also not correct. The correct statement is D).
+
+
+
+
+2)
+
+#include "stdio.h" 
+int main()
+{
+ void *pVoid;
+ pVoid = (void*)0;
+ printf(“%d”,sizeof(pVoid));
+ return 0;
+}
+
+
+Pick the best statement for the above C program snippet.
+(A) Assigning (void *)0 to pVoid isn’t correct because memory hasn’t been allocated. That’s why no compile error but it’ll result in run time error.
+(B) Assigning (void *)0 to pVoid isn’t correct because a hard coded value (here zero i.e. 0) can’t assigned to any pointer. That’s why it’ll result in compile error.
+(C) No compile issue and no run time issue. And the size of the void pointer i.e. pVoid would equal to size of int.
+(D) sizeof() operator isn’t defined for a pointer of void type.
+
+
+Answer: (C) 
+
+Explanation: (void *)0 is basically NULL pointer which is used for many purposes in C. Please note that no matter what is the type of pointer, each pointer holds some address and the size of every pointer is equal to sizeof(int). So D) isn’t correct. An absolute address can be assigned to any pointer though it might result in issues at run time if the address is illegal. Since 0 is a legal address, assigning (void *)0 to pVoid is fine. So B) isn’t correct. We aren’t doing any illegal operation with pVoid here. So it’ll not result in any compile/run time error. So A) isn’t correct. For example, if we perform illegal operation over pVoid e.g. de-referencing of void pointer i.e. *pVoid, it’ll result in error. The above program will compile/run without any issue. So C) is correct.
+
+
+
+3) An element in an array X is called a leader if it is greater than all elements to the right of it in X. The best algorithm to find all leaders in an array 
+(A) Solves it in linear time using a left to right pass of the array
+(B) Solves it in linear time using a right to left pass of the array
+(C) Solves it using divide and conquer in time O(nlogn)
+(D) Solves it in time O(n2)
+
+
+Answer: (B)
+
+4
+)
+An inversion in a an array A[] is a pair (A[i], A[j]) such that A[i] > A[j] and i < j. An array will have maximum number of inversions if it is:
+
+(A) Sorted in increasing order
+(B) Sorted in decreasing order
+(C) Sorted in alternate fashion
+(D) Both A and B
+
+
+Answer: (B) 
+
+Explanation: If the array is sorted in decreasing order, each pair will be an inversion.
+e.g. 5, 4, 3, 2, 1
+Maximum number of inversions possible = n * (n – 1) / 2 where n is the size of the array
+
+
+5)
+
+Following function is supposed to calculate the maximum depth or height of a Binary tree — the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+int maxDepth(struct node* node)
+{
+   if (node==NULL)
+       return 0;
+   else
+   {
+       /* compute the depth of each subtree */
+       int lDepth = maxDepth(node->left);
+       int rDepth = maxDepth(node->right);
+  
+       /* use the larger one */
+       if (lDepth > rDepth)
+           return X;
+       else return Y;
+   }
+}
+
+What should be the values of X and Y so that the function works correctly?
+(A) X = lDepth, Y = rDepth
+(B) X = lDepth + 1, Y = rDepth + 1
+(C) X = lDepth – 1, Y = rDepth -1
+(D) None of the above
+
+
+Answer: (B) 
+
+Explanation: If a tree is not empty, height of tree is
+MAX(Height of Left Subtree, Height of Right Subtree) + 1
+
+6)
+
+what does the following C expression do?
+ x = x & (x-1) 
+(A) Sets all bits as 1
+(B) Makes x equals to 0
+(C) Turns of the rightmost set bit
+(D) Turns of the leftmost set bit
+
+
+Answer: (C) 
+
+Explanation: The expression simply turns off the rightmost set bit. For example, if x = 14 (1110), it returns 12 (1100)
+
+7) 
+
+A system contains three programs and each requires three tape units for its operation. The minimum number of tape units which the system must have such that deadlocks never arise is _________.
+(A) 6
+(B) 7
+(C) 8
+(D) 9
+
+
+Answer: (B) 
+
+Explanation: If 6 resources are there then it may be possible that all three process have 2 resources and waiting for 1 more resource. Therefore, all of them will have to wait indefinitely. If 7 resources are there, then atleast one must have 3 resources so deadlock can never occur
+
+
+8)
+
+
+Which one of the following is the tightest upper bound that represents the number of swaps required to sort n numbers using selection sort?
+(A) O(log n)
+(B) O(n)
+(C) O(nLogn)
+(D) O(n^2)
+
+
+Answer: (B) 
+
+Explanation: To sort elements in increasing order, selection sort always picks the maximum element from remaining unsorted array and swaps it with the last element in the remaining array. So the number of swaps, it makes in n-1 which is O(n)
+
+
+9)
+Which of the following algorithms can be used to most efficiently determine the presence of a cycle in a given graph ?
+(A) Depth First Search
+(B) Breadth First Search
+(C) Prim’s Minimum Spanning Tree Algorithm
+(D) Kruskal’ Minimum Spanning Tree Algorithm
+
+
+Answer: (A)
+
+10)
+Traversal of a graph is different from tree because
+(A) There can be a loop in graph so we must maintain a visited flag for every vertex
+(B) DFS of a graph uses stack, but inorrder traversal of a tree is recursive
+(C) BFS of a graph uses queue, but a time efficient BFS of a tree is recursive.
+(D) All of the above
+
+
+Answer: (A) 

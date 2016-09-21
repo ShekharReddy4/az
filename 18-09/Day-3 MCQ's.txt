@@ -1,0 +1,230 @@
+1)
+
+The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is
+(A) \theta(n)
+(B) \theta(logn)
+(C) \theta(log*n)
+(D) \theta(n)
+
+(A) A
+(B) B
+(C) C
+(D) D
+
+
+Answer: (B)
+
+
+2)
+
+Suppose you are given an array s[1…n] and a procedure reverse (s,i,j) which reverses the order of elements in a between positions i and j (both inclusive). What does the following sequence
+
+do, where 1 < k <= n:
+  reverse (s, 1, k);
+  reverse (s, k + 1, n);
+  reverse (s, 1, n);
+
+
+(A) Rotates s left by k positions
+(B) Leaves s unchanged
+(C) Reverses all elements of s
+(D) None of the above
+
+
+Answer: (A)
+
+Explanation: Effect of the above 3 reversals for any k is equivalent to left rotation of the array of size n by k.
+If we rotate an array n times for k = 1 to n, we get the same array back.
+
+
+3)
+
+Which of the following sorting algorithms can be used to sort a random linked list with minimum time complexity?
+(A) Bubble Sort
+(B) Quick Sort
+(C) Heap Sort
+(D) Merge Sort
+
+
+Answer: (D)
+
+Explanation: Both Merge sort and Insertion sort can be used for linked lists.
+
+The slow random-access performance of a linked list makes other algorithms (such as quicksort) perform poorly, and others (such as heapsort) completely impossible.
+
+Since worst case time complexity of Merge Sort is O(nLogn) and Insertion sort is O(n^2), merge sort is preferred.
+
+
+4)
+
+int fun(int x, int y) 
+{
+  if (x == 0)
+    return y;
+  return fun(x - 1,  x + y);
+} 
+
+What is the value of fun(4, 3) 
+(A) 13
+(B) 12
+(C) 9
+(D) 10
+
+
+Answer: (A)
+
+
+5)
+
+Suppose that in a C program snippet, followings statements are used.
+i) sizeof(int);
+ii) sizeof(int*);
+iii) sizeof(int**);
+
+Assuming size of pointer is 4 bytes and size of int is also 4 bytes, pick the most correct answer from the given options.
+(A) Only i) would compile successfully and it would return size as 4.
+(B) i), ii) and iii) would compile successfully and size of each would be same i.e. 4
+(C) i), ii) and iii) would compile successfully but the size of each would be different and would be decided at run time.
+(D) ii) and iii) would result in compile error but i) would compile and result in size as 4.
+
+
+Answer: (B)
+
+Explanation: Size of all pointer types is same.
+
+And whether it is a ‘pointer to char’ or ‘pointer to int’ or ‘pointer to pointer to int’, the size always remain same.
+
+That’s why all i), ii) and iii) would compile successfully and would result in same size value of 4.
+
+
+6)
+
+A system has n resources R0,…,Rn-1,and k processes P0,….Pk-1.The implementation of the resource request logic of each process Pi is as follows: 
+
+ if (i % 2 == 0) {
+      if (i < n) request Ri
+      if (i+2 < n) request Ri+2
+}
+else {
+      if (i < n) request Rn-i
+      if (i+2 < n) request Rn-i-2
+}
+
+In which one of the following situations is a deadlock possible?
+(A) n=40, k=26
+(B) n=21, k=12
+(C) n=20, k=10
+(D) n=41, k=19
+
+
+Answer: (B)
+
+Explanation:
+
+Option B is answer
+
+No. of resources, n = 21
+No. of processes, k = 12
+
+Processes {P0, P1....P11}  make the following Resource requests:
+{R0, R20, R2, R18, R4, R16, R6, R14, R8, R12, R10, R10}
+
+For example P0 will request R0 (0%2 is = 0 and 0< n=21). 
+
+Similarly, P10 will request R10.
+
+P11 will request R10 as n - i = 21 - 11 = 10.
+
+As different processes are requesting the same resource, deadlock
+may occur. 
+
+
+7)
+
+Relation R has eight attributes ABCDEFGH. Fields of R contain only atomic values. F = {CH -> G, A -> BC, B -> CFH, E -> A, F -> EG} is a set of functional dependencies (FDs) so that F+ is exactly the set of FDs that hold for R.
+
+How many candidate keys does the relation R have?
+
+(A) 3
+(B) 4
+(C) 5
+(D) 6
+
+
+Answer: (B)
+
+Explanation: A+ is ABCEFGH which is all attributes except D.
+
+B+ is also ABCEFGH which is all attributes except D.
+
+E+ is also ABCEFGH which is all attributes except D.
+
+F+ is also ABCEFGH which is all attributes except D.
+
+So there are total 4 candidate keys AD, BD, ED and FD
+
+
+8)
+
+What is the worst case time complexity for search, insert and delete operations in a general Binary Search Tree?
+(A) O(n) for all
+(B) O(Logn) for all
+(C) O(Logn) for search and insert, and O(n) for delete
+(D) O(Logn) for search, and O(n) for insert and delete
+
+
+Answer: (A)
+
+Explanation: In skewed Binary Search Tree (BST), all three operations can take O(n). See the following example BST and operations.
+
+          10
+        /
+       20
+      /
+     30
+    / 
+   40
+
+Search 40. 
+Delete 40
+Insert 50.
+
+
+9)
+
+What is the return value of following function for arr[] = {9, 12, 2, 11, 2, 2, 10, 9, 12, 10, 9, 11, 2} and n is size of this array.
+int fun(int arr[], int n)
+{
+    int x = arr[0];
+    for (int i = 1; i < n; i++)
+        x = x ^ arr[i];
+    return x;
+}
+
+(A) 0
+(B) 9
+(C) 12
+(D) 2
+
+
+Answer: (B)
+
+Explanation: Note that 9 is the only element with odd occurrences, all other elements have even occurrences.
+
+If the input array has all elements with even occurrences except one, then the function returns the only element with odd occurrences. Note that XORing an element with itself results 0 and XOR of 0 with a number x is equal to x.
+
+
+
+10)
+
+Which of the following traversal outputs the data in sorted order in a BST?
+(A) Preorder
+(B) Inorder
+(C) Postorder
+(D) Level order
+
+
+Answer: (B)
+
+
+

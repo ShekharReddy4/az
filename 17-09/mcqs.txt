@@ -1,0 +1,226 @@
+1)
+
+What is the output of following program?
+#include <stdio.h>
+ 
+void print(int n, int j)
+{
+   if (j >= n)
+      return;
+   if (n-j > 0 && n-j >= j)
+       printf("%d %d\n", j, n-j);
+   print(n, j+1);
+}
+ 
+int main()
+{
+    int n = 8;
+    print(n, 1);
+}
+
+A)
+1 7
+2 6
+3 5
+4 4
+4 4
+
+B)
+1 7
+2 6
+3 5
+4 4
+
+C)
+1 7
+2 6
+3 5
+
+D)
+1 2
+3 4
+5 6
+7 8
+
+
+Ans:- Answer: (B) 
+
+Explanation: For a given number n, the program prints all distinct pairs of positive integers with sum equal to n
+
+2)
+
+Which of the following is correct recurrence for worst case of Binary Search?
+
+A) T(n) = 2T(n/2) + O(1) and T(1) = T(0) = O(1)
+B) T(n) = T(n-1) + O(1) and T(1) = T(0) = O(1)
+C) T(n) = T(n/2) + O(1) and T(1) = T(0) = O(1)
+D) T(n) = T(n-2) + O(1) and T(1) = T(0) = O(1)
+
+
+
+Ans:- C 
+
+In Binary Search, we first compare the given element x with middle of the array. If x matches with middle element, then we return middle index. Otherwise, we either recur for left half of array or right half of array.
+So recurrence is T(n) = T(n/2) + O(1)
+
+
+3)
+
+Following is C like pseudo code of a function that takes a number as an argument, and uses a stack S to do processing.
+
+void fun(int n)
+{
+    Stack S;  // Say it creates an empty stack S
+    while (n > 0)
+    {
+      // This line pushes the value of n%2 to stack S
+      push(&S, n%2);
+      n = n/2;
+    }
+    // Run while Stack S is not empty
+    while (!isEmpty(&S))
+      printf("%d ", pop(&S)); // pop an element from S and print it
+}
+
+
+
+What does the above function do in general?
+(A) Prints binary representation of n in reverse order
+(B) Prints binary representation of n
+(C) Prints the value of Logn
+(D) Prints the value of Logn in reverse order
+
+
+Answer: (B) 
+
+
+4)
+
+Which of the following points is/are true about Linked List data structure when it is compared with array
+
+A Arrays have better cache locality that can make them better in terms of performance.
+B It is easy to insert and delete elements in Linked List
+C Random access is not allowed in a typical implementation of Linked Lists
+D The size of array has to be pre-decided, linked lists can change their size any time.
+E All of the above
+
+Ans:- E
+
+
+5)
+
+Consider the following function that takes reference to head of a Doubly Linked List as parameter. 
+Assume that a node of doubly linked list has previous pointer as prev and next pointer as next.
+
+void fun(struct node **head_ref)
+{
+    struct node *temp = NULL;
+    struct node *current = *head_ref;
+ 
+    while (current !=  NULL)
+    {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev;
+    }
+ 
+    if(temp != NULL )
+        *head_ref = temp->prev;
+}
+
+Assume that reference of head of following doubly linked list is passed to above function 
+1 <--> 2 <--> 3 <--> 4 <--> 5 <-->6. 
+
+What should be the modified linked list after the function call?
+
+A 2 <--> 1 <--> 4 <--> 3 <--> 6 <-->5
+B 5 <--> 4 <--> 3 <--> 2 <--> 1 <-->6
+C 6 <--> 5 <--> 4 <--> 3 <--> 2 <--> 1
+D 6 <--> 5 <--> 4 <--> 3 <--> 1 <--> 2
+
+Ans:- C
+
+
+6)
+
+Which of the following is a true about Binary Trees
+A Every binary tree is either complete or full.
+B Every complete binary tree is also a full binary tree.
+C Every full binary tree is also a complete binary tree.
+D No binary tree is both complete and full.
+E None of the above
+
+
+Ans :- E
+
+
+7) 
+A program P reads in 500 integers in the range [0..100] exepresenting the scores of 500 students. 
+It then prints the frequency of each score above 50.
+What would be the best way for P to store the frequencies? 
+
+(A) An array of 50 numbers
+(B) An array of 100 numbers
+(C) An array of 500 numbers
+(D) A dynamically allocated array of 550 numbers
+
+
+Answer: (A) 
+
+
+8) 
+
+The most appropriate matching for the following pairs
+
+X: m=malloc(5); m= NULL;        1: using dangling pointers
+Y: free(n); n->value=5;         2: using uninitialized pointers
+Z: char *p; *p = ’a’;           3. lost memory is
+
+(A) X—1 Y—3 Z-2
+(B) X—2 Y—1 Z-3
+(C) X—3 Y—2 Z-1
+(D) X—3 Y—1 Z-2
+
+
+Answer: (D) 
+
+Explanation: X -> A pointer is assigned to NULL without freeing memory so a clear example of memory leak
+Y -> Trying to retrieve value after freeing it so dangling pointer.
+Z -> Using uninitialized pointers
+
+9)
+
+What does the following fragment of C-program print?
+
+char c[] = "KMIT2016"; 
+char *p =c; 
+printf("%s", p + p[3] - p[1]) ;
+
+(A) KMIT2016
+(B) T2016
+(C) 2016
+(D) 6
+
+
+Answer: (D) 
+
+
+10) 
+
+In below program, what would you put in place of “?” to print “Quiz”?
+
+#include <stdio.h>
+int main() 
+{ 
+  char arr[] = "kmitsQuiz"; 
+  printf("%s", ?); 
+  return 0; 
+}
+
+A arr
+B (arr+5)
+C (arr+4)
+D Not possible
+
+Ans :- B
