@@ -1,0 +1,65 @@
+.block_navigation{
+display:none;
+}
+.block_settings {
+display:none;
+}
+#region-main.span8 {
+    width: 99% !important;
+}
+.breadcrumb-nav {
+display:none;
+}
+#vpl_ide_about,#vpl_ide_fullscreen{
+display:none !important;
+
+}
+.ui-menu .ui-menu-item {
+list-style-image:none !important; 
+list-style:none !important;
+
+}
+
+/******** USER PROFILE PAGE ***********/
+#page-user-profile .breadcrumb-button .singlebutton{
+display:none !important;
+}
+#page-user-profile  .node_category:first-child ul li:first-child{
+display:none;
+}
+#page-user-profile  .node_category:nth-child(2){
+display:none;
+}
+#page-user-profile  .node_category:nth-child(3){
+display:none;
+}
+#page-user-profile  .node_category:nth-child(4){
+display:none;
+}
+/******** FOR HEADER ************/
+
+ .usermenu .moodle-actionmenu ul:nth-child(2) li:nth-child(3) {
+display:none;
+}
+ 
+/*********** VPL CSS *************/
+.path-mod-vpl .vpl_ide .ui-menu>li:nth-child(3) {
+display:none;
+}
+
+.path-mod-vpl .vpl_ide .ui-menu>li:last-child {
+   display:none;
+}
+
+.path-mod-vpl .vpl_ide .ui-menu>li #vpl_ide_find
+{
+    display:none;
+}
+
+.path-mod-vpl .vpl_ide .ui-menu>li #vpl_ide_find_replace
+{
+    display:none;
+}
+#page-footer {
+        display: block !important;
+    }

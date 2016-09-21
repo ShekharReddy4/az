@@ -1,0 +1,39 @@
+   76 import java.util.*;
+   77 class HourGlass{
+   78     
+   79     public static void main(String[] args){
+   80         
+   81         Scanner sc = new Scanner(System.in);
+   82         int a[][] = new int[6][6];
+   83         for(int i=0;i<6;i++){
+   84             for(int j=0;j<6;j++){
+   85                 a[i][j] = sc.nextInt();
+   86             }
+   87         }
+   88         int not=0;
+   89          for(int i=0;i<6;i++){
+                for(int j=0;j<6;j++){
+                    if(a[i][j]<=(-9) && a[i][j]>= 9){not=(-1);}
+               }
+           }
+           
+           int sum=0;
+           if(not != (-1)){
+               for(int i=0;i<4;i++){
+                   for(int j=0;j<4;j++){
+                       int sum1=0;
+                       sum1=(a[i][j]+a[i][j+1]+a[i][j+2]+a[i+1][j+1]+a[i+2][j]+a[i+2][j+1]+a[i+2][j+2]);
+                       if(sum1>=sum){
+                           sum=sum1;
+                       }
+                   }
+               }
+               System.out.println(sum);
+           }
+           else if (not == -1)
+           {
+               System.out.println(-1);
+           }
+       }
+       
+      }
